@@ -1,0 +1,9 @@
+H:\Development\Aljur\TestTravelJulia\src\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+H:\Development\Aljur\TestTravelJulia\src\Core\bin\Debug\netcoreapp3.1\Core.dll
+H:\Development\Aljur\TestTravelJulia\src\Core\bin\Debug\netcoreapp3.1\Core.pdb
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.dll
+H:\Development\Aljur\TestTravelJulia\src\Core\obj\Debug\netcoreapp3.1\Core.pdb
