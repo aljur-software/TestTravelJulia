@@ -1,8 +1,6 @@
 ﻿using Core.BaseClasses;
-using System;
-using System.Collections.Generic;
+using Core.Common;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DataLayerEF.Entities
 {
@@ -14,9 +12,5 @@ namespace DataLayerEF.Entities
         public string Value { get; set; }
     }
 
-    public enum ContactType
-    { 
-        Email,
-        Phone
-    }
+
 }

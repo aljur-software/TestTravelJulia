@@ -1,11 +1,8 @@
 ﻿using Core.Interfaces;
 using DataLayerEF.Entities;
 using Microsoft.EntityFrameworkCore;
-using StructureMap;
-using System;
+//using StructureMap;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLayerEF.Repositories
@@ -14,7 +11,7 @@ namespace DataLayerEF.Repositories
     {
         private readonly AppEFContext _context;
 
-        [DefaultConstructor]
+        //[DefaultConstructor]
         public AgentRepository(AppEFContext context)
         {
             _context = context;

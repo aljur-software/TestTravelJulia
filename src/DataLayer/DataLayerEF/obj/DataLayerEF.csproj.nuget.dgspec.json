@@ -125,10 +125,6 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
               "target": "Package",
               "version": "[1.1.0, )"
-            },
-            "StructureMap": {
-              "target": "Package",
-              "version": "[4.7.1, )"
             }
           },
           "imports": [

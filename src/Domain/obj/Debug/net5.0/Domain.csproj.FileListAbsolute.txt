@@ -1,0 +1,15 @@
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\Domain.deps.json
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\ref\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\Domain.pdb
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\Core.dll
+H:\Development\Aljur\TestTravelJulia\src\Domain\bin\Debug\net5.0\Core.pdb
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.csprojAssemblyReference.cache
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.csproj.CopyComplete
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\ref\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\Domain\obj\Debug\net5.0\Domain.pdb

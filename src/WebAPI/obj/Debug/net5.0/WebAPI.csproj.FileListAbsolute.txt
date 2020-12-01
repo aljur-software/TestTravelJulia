@@ -35,4 +35,7 @@ H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\DataLayerEF.pdb
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\obj\Debug\net5.0\WebAPI.csproj.CopyComplete
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Core.dll
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Core.pdb
-H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\StructureMap.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Infrastructure.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Domain.pdb
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Infrastructure.pdb

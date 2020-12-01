@@ -1,5 +1,8 @@
-﻿using Core.Interfaces;
+﻿using Core.Common;
+using Core.Interfaces;
 using DataLayerEF.Entities;
+using Domain.Models;
+using Infrastructure.Converters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class TestTravelController : ControllerBase
     {
@@ -24,29 +27,20 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Agency>> Get()
+        public async Task<IEnumerable<AgencyModel>> GetAgencies()
         {
             var agencies = await _unitOfWork.Repository<Agency>().GetEntities();
+            var agencyModels = agencies.Select(_ => EFToModelConverters.AgencyEFToModel(_)).ToArray();
+            return agencyModels;
+        }
 
-            if (agencies.Count < 1)
-                agencies.Add(new Agency
-                {
-                    Id = 0,
-                    Name = "TestAgency",
-                    Description = "Bla-Bla",
-                    Address = "somewhere",
-                    Contacts = new List<Contact> { new Contact { Id = -1, Type = ContactType.Email, Value = "JUK@gmail.com" } }
-                }) ;
-            
-            return agencies.ToArray();
-            /*var rng = new Random();            
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();*/
+        [HttpGet]
+        public async Task<IEnumerable<AgentModel>> GetAgents()
+        {
+            var agents = await _unitOfWork.Repository<Agent>().GetEntities();
+            var agentModels = agents.Select(_ => EFToModelConverters.AgentEFToModel(_)).ToArray();
+            return agentModels;
         }
     }
 }
+
