@@ -1,10 +1,10 @@
-﻿using DataLayerEF.Entities;
+﻿using Domain.Entities;
 using Domain.Models;
 using System;
 using System.Linq;
 
 
-namespace Infrastructure.Converters
+namespace Domain.Converters
 {
     public static class ModelToEFConverters
     {

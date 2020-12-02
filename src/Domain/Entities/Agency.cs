@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataLayerEF.Entities
+namespace Domain.Entities
 {
     public class Agency: BaseEntity
     {
@@ -10,8 +10,8 @@ namespace DataLayerEF.Entities
         public string Name { get; set; }
         [MaxLength(100)]
         public string Address { get; set; }     
-        public List<Contact> Contacts { get; set; }
-        public List<Agent> Agents { get; set; }
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
+        public List<Agent> Agents { get; set; } = new List<Agent>();
         [MaxLength(512)]
         public string Description { get; set; }
 

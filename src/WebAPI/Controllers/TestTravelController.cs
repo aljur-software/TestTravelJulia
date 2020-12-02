@@ -1,14 +1,10 @@
-﻿using Core.Common;
-using Core.Interfaces;
-using DataLayerEF.Entities;
+﻿using Domain;
+using Domain.Interfaces;
 using Domain.Models;
-using Infrastructure.Converters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -18,28 +14,31 @@ namespace WebAPI.Controllers
     public class TestTravelController : ControllerBase
     {
         private readonly ILogger<TestTravelController> _logger;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IAgencyService _agencyService;
 
-        public TestTravelController(IUnitOfWork unitOfWork, ILogger<TestTravelController> logger)
+
+        public TestTravelController(IAgencyService agencyService, ILogger<TestTravelController> logger)
         {
-            _unitOfWork = unitOfWork;
+            _agencyService = agencyService;
             _logger = logger;
         }
 
         [HttpGet]
         public async Task<IEnumerable<AgencyModel>> GetAgencies()
         {
-            var agencies = await _unitOfWork.Repository<Agency>().GetEntities();
-            var agencyModels = agencies.Select(_ => EFToModelConverters.AgencyEFToModel(_)).ToArray();
-            return agencyModels;
+           return await _agencyService.GetAgenciesFullInfo();
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<AgentModel>> GetAgents()
+        [HttpPost]
+        public async Task AddAgentToAgency(int agencyId, AgentModel agentModel)
         {
-            var agents = await _unitOfWork.Repository<Agent>().GetEntities();
-            var agentModels = agents.Select(_ => EFToModelConverters.AgentEFToModel(_)).ToArray();
-            return agentModels;
+            await _agencyService.AddAgentToAgency(agencyId, agentModel);
+        }
+
+        [HttpPost]
+        public async Task<ImportResult> ImportAgenciesWithAgents()
+        {
+            return await _agencyService.ImportAgenciesWithAgents(new List<AgencyModel>());
         }
     }
 }

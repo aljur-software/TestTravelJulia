@@ -1,7 +1,7 @@
 ﻿using Core.BaseClasses;
 using Core.Interfaces;
-using DataLayerEF.Entities;
 using DataLayerEF.Repositories;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -52,16 +52,6 @@ namespace DataLayerEF
                 }
             }
             return (IBaseRepository<T>)repositories[type]; 
-            /*
-            var type = typeof(T).Name;
-            if (!repositories.ContainsKey(type))
-            {
-                var repoType = typeof(IBaseRepository<T>);
-                var repoInstance = Activator.CreateInstance(repoType.MakeGenericType(typeof(T)), _context);
-                repositories.Add(type, repoInstance);
-            }
-            return (IBaseRepository<T>)repositories[type];
-            */
         }
     }
 }

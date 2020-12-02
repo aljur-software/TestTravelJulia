@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Core.BaseClasses;
+using System;
 using System.Collections.Generic;
 
 namespace Domain.Models
 {
     [Serializable]
-    public class AgencyModel
+    public class AgencyModel: BaseModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public List<ContactModel> Contacts { get; set; }

@@ -16,3 +16,5 @@ H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\obj\Debug\net5.0\
 H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\bin\Debug\net5.0\Core.dll
 H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\bin\Debug\net5.0\Core.pdb
 H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\obj\Debug\net5.0\DataLayerEF.csproj.CopyComplete
+H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\bin\Debug\net5.0\Domain.dll
+H:\Development\Aljur\TestTravelJulia\src\DataLayer\DataLayerEF\bin\Debug\net5.0\Domain.pdb

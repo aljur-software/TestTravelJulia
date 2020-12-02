@@ -1,7 +1,7 @@
-﻿using Core.Interfaces;
-using DataLayerEF.Entities;
+﻿using Core.Common;
+using Core.Interfaces;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-//using StructureMap;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,7 +11,6 @@ namespace DataLayerEF.Repositories
     {
         private readonly AppEFContext _context;
 
-        //[DefaultConstructor]
         public AgentRepository(AppEFContext context)
         {
             _context = context;
@@ -26,10 +25,24 @@ namespace DataLayerEF.Repositories
             return await _context.Agents.ToListAsync<Agent>();
         }
 
+        public async Task<Agent> GetEntityById(int id)
+        {
+            var agent = await _context.Agents.FindAsync(id);
+            return agent;
+        }
+
+        public async Task<Agent> InsertEntity(Agent entity)
+        {
+            _context.Agents.Add(entity);
+            var rowsAffected = await _context.SaveChangesAsync();
+            return (rowsAffected > 0) ? entity : throw new AgentWasNotInserted();
+        }
+
         public async Task UpdateEntity(Agent entity)
         {
             _context.Agents.Update(entity);
-            await _context.SaveChangesAsync();
+            var rowsAffected = await _context.SaveChangesAsync();
+            if(rowsAffected < 1) throw new AgentWasNotUpdated();
         }
     }
 }

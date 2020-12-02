@@ -36,6 +36,9 @@ H:\Development\Aljur\TestTravelJulia\src\WebAPI\obj\Debug\net5.0\WebAPI.csproj.C
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Core.dll
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Core.pdb
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Domain.dll
-H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Infrastructure.dll
 H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Domain.pdb
-H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Infrastructure.pdb
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+H:\Development\Aljur\TestTravelJulia\src\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs

@@ -1,4 +1,4 @@
-﻿using DataLayerEF.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayerEF
@@ -11,7 +11,6 @@ namespace DataLayerEF
 
         public AppEFContext(DbContextOptions<AppEFContext> options):base(options)
         {
-            //Database.EnsureCreated();
             //Database.Migrate();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces;
-using DataLayerEF.Entities;
 using DataLayerEF.Repositories;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QBRX4SNZBQIv9FvpPAU8d7XOA9GD7B4kcNGesFh1hq9kYycEc7HyzI6MwiZmqYi6OzhARIVgNm1te1r5kDHxrA==",
+  "dgSpecHash": "K4p3KNByRzWvuzdgEDZ8oduku+euF9UVWVo/OU5jMERwf9zEBsnGQRZHw/IvvDKBeLIPCbZ9555FenBW4NHkgg==",
   "success": true,
   "projectFilePath": "H:\\Development\\Aljur\\TestTravelJulia\\src\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\JUK\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

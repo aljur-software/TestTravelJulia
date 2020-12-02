@@ -8,6 +8,8 @@ namespace Core.Interfaces
     {
         Task<List<T>> GetFlatEntities();
         Task<List<T>> GetEntities();
+        Task<T> GetEntityById(int id);
+        Task<T> InsertEntity(T entity);
         Task UpdateEntity(T entity);
     }
 }

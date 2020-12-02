@@ -1481,6 +1481,20 @@
         "runtime": {
           "bin/placeholder/Core.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Core": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -5293,11 +5307,17 @@
       "type": "project",
       "path": "../../Core/Core.csproj",
       "msbuildProject": "../../Core/Core.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Domain/Domain.csproj",
+      "msbuildProject": "../../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Core >= 1.0.0",
+      "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Relational >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.0",
@@ -5340,6 +5360,9 @@
           "projectReferences": {
             "H:\\Development\\Aljur\\TestTravelJulia\\src\\Core\\Core.csproj": {
               "projectPath": "H:\\Development\\Aljur\\TestTravelJulia\\src\\Core\\Core.csproj"
+            },
+            "H:\\Development\\Aljur\\TestTravelJulia\\src\\Domain\\Domain.csproj": {
+              "projectPath": "H:\\Development\\Aljur\\TestTravelJulia\\src\\Domain\\Domain.csproj"
             }
           }
         }
