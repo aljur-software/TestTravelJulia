@@ -4,6 +4,7 @@ using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -24,21 +25,50 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AgencyModel>> GetAgencies()
+        [ProducesResponseType(typeof(List<AgencyModel>), 200)]
+        public async Task<IActionResult> GetAgencies()
         {
-           return await _agencyService.GetAgenciesFullInfo();
+            try
+            {
+                return Ok(await _agencyService.GetAgenciesFullInfo());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message + "; " + ex.InnerException?.Message);
+                return BadRequest(ex.Message + "; " + ex.InnerException?.Message);
+            }
+
         }
 
         [HttpPost]
-        public async Task AddAgentToAgency(int agencyId, AgentModel agentModel)
+        public async Task<IActionResult> AddAgentToAgency(int agencyId, AgentModel agentModel)
         {
-            await _agencyService.AddAgentToAgency(agencyId, agentModel);
+            try
+            {
+                await _agencyService.AddAgentToAgency(agencyId, agentModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message + "; " + ex.InnerException?.Message);
+                return BadRequest(ex.Message + "; " + ex.InnerException?.Message);
+            }
+
         }
 
         [HttpPost]
-        public async Task<ImportResult> ImportAgenciesWithAgents()
+        [ProducesResponseType(typeof(ImportResult), 200)]
+        public async Task<IActionResult> ImportAgenciesWithAgents()
         {
-            return await _agencyService.ImportAgenciesWithAgents(new List<AgencyModel>());
+            try
+            {
+                return Ok(await _agencyService.ImportAgenciesWithAgents(new List<AgencyModel>()));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message + "; " + ex.InnerException?.Message);
+                return BadRequest(ex.Message + "; " + ex.InnerException?.Message);
+            }
         }
     }
 }

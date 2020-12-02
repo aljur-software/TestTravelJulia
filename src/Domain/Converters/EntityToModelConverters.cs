@@ -3,45 +3,44 @@ using Domain.Models;
 using System;
 using System.Linq;
 
-
 namespace Domain.Converters
 {
-    public static class ModelToEFConverters
+    public static class EntityToModelConverters
     {
-        public static Contact ContactModelToEF(ContactModel contact)
+        public static ContactModel ContactEntityToModel(Contact contact)
         {
             if (contact == null) throw new NullReferenceException("contact is null");
-            return new Contact
+            return new ContactModel
             {
                 Id = contact.Id,
-                Type = contact.ContactType,
+                ContactType = contact.Type,
                 Value = contact.Value
             };
         }
 
-        public static Agent AgentModelToEF(AgentModel agent)
+        public static AgentModel AgentEntityToModel(Agent agent)
         {
             if (agent == null) throw new NullReferenceException("agent is null");
-            return new Agent
+            return new AgentModel
             {
                 Id = agent.Id,
                 Name = agent.Name,
                 Description = agent.Description,
-                Contacts = agent.Contacts?.Select(_ => ContactModelToEF(_)).ToList()
+                Contacts = agent.Contacts?.Select(_ => ContactEntityToModel(_)).ToList()
             };
         }
 
-        public static Agency AgencyModelToEF(AgencyModel agency)
+        public static AgencyModel AgencyEntityToModel(Agency agency)
         {
             if (agency == null) throw new NullReferenceException("agency is null");
-            return new Agency
+            return new AgencyModel
             {
                 Id = agency.Id,
                 Name = agency.Name,
                 Description = agency.Description,
-                Contacts = agency.Contacts?.Select(_ => ContactModelToEF(_)).ToList(),
+                Contacts = agency.Contacts?.Select(_ => ContactEntityToModel(_)).ToList(),
                 Address = agency.Address,
-                Agents = agency.Agents?.Select(_ => AgentModelToEF(_)).ToList()
+                Agents = agency.Agents?.Select(_ => AgentEntityToModel(_)).ToList()
             };
         }
     }

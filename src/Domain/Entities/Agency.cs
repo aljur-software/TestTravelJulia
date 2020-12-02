@@ -14,6 +14,5 @@ namespace Domain.Entities
         public List<Agent> Agents { get; set; } = new List<Agent>();
         [MaxLength(512)]
         public string Description { get; set; }
-
     }
 }

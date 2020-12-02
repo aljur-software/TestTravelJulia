@@ -23,9 +23,8 @@ namespace Domain.MainLogicServices
         {
             try
             {
-                var agentEntity = ModelToEFConverters.AgentModelToEF(agent);
+                var agentEntity = ModelToEntityConverters.AgentModelToEntity(agent);
                 var agency = await _unitOfWork.Repository<Agency>().GetEntityById(agencyId);
-                if (agency == null) throw new AgecyNotFoundException();
                 agency.Agents.Add(agentEntity);
                 await _unitOfWork.Repository<Agency>().UpdateEntity(agency);
                 return true;
@@ -40,7 +39,7 @@ namespace Domain.MainLogicServices
         public async Task<List<AgencyModel>> GetAgenciesFullInfo()
         {
             var agencies = await _unitOfWork.Repository<Agency>().GetEntities();
-            var agencyModels = agencies.Select(_ => EFToModelConverters.AgencyEFToModel(_)).ToList();
+            var agencyModels = agencies.Select(_ => EntityToModelConverters.AgencyEntityToModel(_)).ToList();
             return agencyModels;
         }
 

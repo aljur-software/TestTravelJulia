@@ -1474,7 +1474,7 @@
       },
       "Core/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
           "bin/placeholder/Core.dll": {}
         },
@@ -5316,7 +5316,6 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Core >= 1.0.0",
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Relational >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
@@ -5358,9 +5357,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "H:\\Development\\Aljur\\TestTravelJulia\\src\\Core\\Core.csproj": {
-              "projectPath": "H:\\Development\\Aljur\\TestTravelJulia\\src\\Core\\Core.csproj"
-            },
             "H:\\Development\\Aljur\\TestTravelJulia\\src\\Domain\\Domain.csproj": {
               "projectPath": "H:\\Development\\Aljur\\TestTravelJulia\\src\\Domain\\Domain.csproj"
             }

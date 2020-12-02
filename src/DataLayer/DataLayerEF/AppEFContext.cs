@@ -20,7 +20,6 @@ namespace DataLayerEF
                 .HasMany<Agent>(ac => ac.Agents)
                 .WithMany(at => at.Agencies);
 
-
             modelBuilder.Entity<Agent>()
                 .ToTable("Agent")
                 .HasMany<Agency>(at => at.Agencies)

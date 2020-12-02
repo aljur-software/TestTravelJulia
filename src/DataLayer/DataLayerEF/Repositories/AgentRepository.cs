@@ -28,7 +28,7 @@ namespace DataLayerEF.Repositories
         public async Task<Agent> GetEntityById(int id)
         {
             var agent = await _context.Agents.FindAsync(id);
-            return agent;
+            return (agent != null) ? agent : throw new AgentNotFoundException();
         }
 
         public async Task<Agent> InsertEntity(Agent entity)
