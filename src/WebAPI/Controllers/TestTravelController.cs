@@ -6,7 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+using Infrastructure.Serialization;
+using Infrastructure.ZipReader;
 
 namespace WebAPI.Controllers
 {
@@ -56,13 +61,19 @@ namespace WebAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost, DisableRequestSizeLimit, Route("file")]
         [ProducesResponseType(typeof(ImportResult), 200)]
-        public async Task<IActionResult> ImportAgenciesWithAgents()
+        public async Task<IActionResult> ImportAgenciesWithAgents(IFormFile file)
         {
             try
             {
-                return Ok(await _agencyService.ImportAgenciesWithAgents(new List<AgencyModel>()));
+                var agencyModels = new List<AgencyModel>();
+                using (var stream = file.OpenReadStream())
+                {
+                    ZipReader<AgencyModel> zipReader = new ZipReader<AgencyModel>();
+                    agencyModels = (zipReader.ReadFromZip(stream));
+                }
+                return Ok(await _agencyService.ImportAgenciesWithAgents(agencyModels));
             }
             catch (Exception ex)
             {

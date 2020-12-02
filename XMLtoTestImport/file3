@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<AgencyModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>3</Id>
+  <Name>Agency3</Name>
+  <Address>Address3</Address>
+  <Contacts>
+    <ContactModel>
+      <Id>3</Id>
+      <ContactTypeStr>2</ContactTypeStr>
+      <Value>050-333-33-33</Value>
+    </ContactModel>
+  </Contacts>
+  <Agents>
+    <AgentModel>
+      <Id>3</Id>
+      <Name>Agent3</Name>
+      <Description>Description3</Description>
+      <Contacts>
+        <ContactModel>
+          <Id>11</Id>
+          <ContactTypeStr>2</ContactTypeStr>
+          <Value>050-000-00-03</Value>
+        </ContactModel>
+      </Contacts>
+    </AgentModel>
+  </Agents>
+  <Description>Description3</Description>
+</AgencyModel>
