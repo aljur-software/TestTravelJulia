@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.Entities;
+using Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace Domain.Interfaces
     {
         Task<bool> AddAgentToAgency(int agencyId, AgentModel agent);
         Task<List<AgencyModel>> GetAgenciesFullInfo();
-        Task<ImportResult> ImportAgenciesWithAgents(List<AgencyModel> agencies);
+        Task<ImportResult> ImportAgenciesWithAgents(List<Agency> agencies);
+        Task<ImportResult> ImportAgenciesWithAgents(KeyValuePair<string, string> agencies);
     }
 }

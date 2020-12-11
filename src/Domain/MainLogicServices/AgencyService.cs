@@ -43,9 +43,36 @@ namespace Domain.MainLogicServices
             return agencyModels;
         }
 
-        public async Task<ImportResult> ImportAgenciesWithAgents(List<AgencyModel> agencies)
+        public async Task<ImportResult> ImportAgenciesWithAgents(List<Agency> agencies)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            _unitOfWork.BulkInsert<Agency>(agencies);
+            return new ImportResult();
+        }
+
+        public async Task<ImportResult> ImportAgenciesWithAgents(KeyValuePair<string, string> pair)
+        {
+            //_unitOfWork.BulkInsert<Agency>(agencies);
+            switch (pair.Key)
+            {
+                case "agencyCSVFilePath":
+                    _unitOfWork.BulkInsert("Agency", pair.Value);
+                    break;
+                case "agencyContactCSVFilePath":
+                    _unitOfWork.BulkInsert("Contact", pair.Value);
+                    break;
+                case "agentsCSVFilePath":
+                    _unitOfWork.BulkInsert("Agent", pair.Value);
+                    break;
+                case "agentContactsCSVFilePath":
+                    _unitOfWork.BulkInsert("Contact", pair.Value);
+                    break;
+                case "agentsToAgenciesCSVFilePath":
+                    _unitOfWork.BulkInsert("AgencyAgent", pair.Value);
+                    break;
+            }
+            return new ImportResult();
         }
     }
 }

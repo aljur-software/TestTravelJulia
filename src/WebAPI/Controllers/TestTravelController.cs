@@ -6,7 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+using Infrastructure.Serialization;
+using Infrastructure.ZipReader;
+using Domain.Entities;
+using Infrastructure.DataPreparation;
 
 namespace WebAPI.Controllers
 {
@@ -56,13 +63,25 @@ namespace WebAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost, DisableRequestSizeLimit, Route("file")]
         [ProducesResponseType(typeof(ImportResult), 200)]
-        public async Task<IActionResult> ImportAgenciesWithAgents()
+        public async Task<IActionResult> ImportAgenciesWithAgents(IFormFile file)
         {
             try
             {
-                return Ok(await _agencyService.ImportAgenciesWithAgents(new List<AgencyModel>()));
+                var agencies = new List<Agency>();
+                using (var stream = file.OpenReadStream())
+                {
+                    ZipReader<Agency> zipReader = new ZipReader<Agency>();
+                    agencies = zipReader.ReadFromZip(stream);
+                }
+                var dataFilepaths = DataForBulkPreparer.SomeMethod(agencies);
+                foreach (var item in dataFilepaths)
+                {
+                    await _agencyService.ImportAgenciesWithAgents(item);
+                }
+
+                return Ok(await _agencyService.ImportAgenciesWithAgents(agencies));
             }
             catch (Exception ex)
             {
@@ -70,6 +89,18 @@ namespace WebAPI.Controllers
                 return BadRequest(ex.Message + "; " + ex.InnerException?.Message);
             }
         }
+
+       /* 
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> GenerateTestXML()
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                XMLModelSerializer<AgencyModel>.ToXMLTest(i);
+            }
+            return Ok();
+        }*/
     }
 }
 

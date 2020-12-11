@@ -5,14 +5,17 @@ namespace DataLayerEF
 {
     public class AppEFContext: DbContext
     {
+        public DbContextOptions<AppEFContext> Options { get; }
         public DbSet<Agency> Agencies { get; set; } 
         public DbSet<Agent> Agents { get; set; }
         public DbSet<Contact> Contacts { get; set; }
 
         public AppEFContext(DbContextOptions<AppEFContext> options):base(options)
         {
-            //Database.Migrate();
+            Options = options;
+            Database.Migrate();
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Agency>()

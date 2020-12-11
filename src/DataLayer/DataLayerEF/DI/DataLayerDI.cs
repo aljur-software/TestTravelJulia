@@ -11,7 +11,7 @@ namespace DataLayerEF.DI
         public static void AddDataLayer(this IServiceCollection services, string connectionString)
         {
             services.AddEntityFrameworkNpgsql().AddDbContext<AppEFContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(connectionString)); //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
             services.AddScoped<IBaseRepository<Agency>, AgencyRepository>();
             services.AddScoped<IBaseRepository<Agent>, AgentRepository>();            
             services.AddScoped<IUnitOfWork, UnitOfWork>();

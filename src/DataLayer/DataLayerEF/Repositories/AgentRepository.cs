@@ -22,7 +22,7 @@ namespace DataLayerEF.Repositories
 
         public async Task<List<Agent>> GetFlatEntities()
         {
-            return await _context.Agents.ToListAsync<Agent>();
+            return await _context.Agents.AsNoTracking().ToListAsync<Agent>();
         }
 
         public async Task<Agent> GetEntityById(int id)
@@ -36,6 +36,20 @@ namespace DataLayerEF.Repositories
             _context.Agents.Add(entity);
             var rowsAffected = await _context.SaveChangesAsync();
             return (rowsAffected > 0) ? entity : throw new AgentWasNotInserted();
+        }
+
+        public async Task<int> MultipleInsert(List<Agent> entities)
+        {
+            try
+            {
+                _context.ChangeTracker.AutoDetectChangesEnabled = false;
+                _context.Agents.UpdateRange(entities);
+                return await _context.SaveChangesAsync();
+            }
+            finally
+            {
+                _context.ChangeTracker.AutoDetectChangesEnabled = true;
+            }
         }
 
         public async Task UpdateEntity(Agent entity)
