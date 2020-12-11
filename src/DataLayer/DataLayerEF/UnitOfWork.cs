@@ -2,6 +2,7 @@
 using Core.Interfaces;
 using DataLayerEF.Repositories;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 
@@ -53,5 +54,20 @@ namespace DataLayerEF
             }
             return (IBaseRepository<T>)repositories[type]; 
         }
+
+        public void BulkInsert<T>(List<T> data) where T: BaseEntity
+        {           
+            _context.Database.ExecuteSqlRaw("");
+        }
+
+        public void BulkInsert(string table_name, string pathToFile) 
+        {
+            _context.Database.ExecuteSqlRaw($"COPY \"{table_name}\" FROM '{pathToFile}' DELIMITER ',' CSV HEADER;");
+        }
+
+        /*private string PrepateQueryToBulkImport<T>(List<T> data) where T : BaseEntity
+        { 
+
+        }*/
     }
 }

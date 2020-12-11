@@ -12,6 +12,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using Infrastructure.Serialization;
 using Infrastructure.ZipReader;
+using Domain.Entities;
+using Infrastructure.DataPreparation;
 
 namespace WebAPI.Controllers
 {
@@ -67,13 +69,19 @@ namespace WebAPI.Controllers
         {
             try
             {
-                var agencyModels = new List<AgencyModel>();
+                var agencies = new List<Agency>();
                 using (var stream = file.OpenReadStream())
                 {
-                    ZipReader<AgencyModel> zipReader = new ZipReader<AgencyModel>();
-                    agencyModels = (zipReader.ReadFromZip(stream));
+                    ZipReader<Agency> zipReader = new ZipReader<Agency>();
+                    agencies = zipReader.ReadFromZip(stream);
                 }
-                return Ok(await _agencyService.ImportAgenciesWithAgents(agencyModels));
+                var dataFilepaths = DataForBulkPreparer.SomeMethod(agencies);
+                foreach (var item in dataFilepaths)
+                {
+                    await _agencyService.ImportAgenciesWithAgents(item);
+                }
+
+                return Ok(await _agencyService.ImportAgenciesWithAgents(agencies));
             }
             catch (Exception ex)
             {
@@ -81,6 +89,18 @@ namespace WebAPI.Controllers
                 return BadRequest(ex.Message + "; " + ex.InnerException?.Message);
             }
         }
+
+       /* 
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> GenerateTestXML()
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                XMLModelSerializer<AgencyModel>.ToXMLTest(i);
+            }
+            return Ok();
+        }*/
     }
 }
 

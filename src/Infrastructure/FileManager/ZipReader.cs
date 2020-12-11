@@ -1,14 +1,10 @@
 ﻿using Core.Common;
-using Domain.Models;
 using Infrastructure.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+
 
 namespace Infrastructure.ZipReader
 {
@@ -21,7 +17,7 @@ namespace Infrastructure.ZipReader
                 var agenciesWithAgents = new List<T>();
                 using (var archive = new ZipArchive(stream))
                 {
-                    XMLModelSerializer<T> serializer = new XMLModelSerializer<T>();//typeof(T)
+                    XMLModelSerializer<T> serializer = new XMLModelSerializer<T>();
                     foreach (ZipArchiveEntry entry in archive.Entries)
                     {
                         agenciesWithAgents.Add(serializer.ModelDeserialize(entry.Open()));
@@ -34,6 +30,6 @@ namespace Infrastructure.ZipReader
                 throw new DeserializeDataException("Reading data from .zip failed: " + ex.Message, ex);
             }
 
-        }
+        }       
     }
 }
